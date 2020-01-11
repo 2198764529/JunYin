@@ -1,0 +1,40 @@
+
+{% extends "nav.html" %}
+<!-- {% block title %}Index{% endblock %} -->
+<!-- {% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %} -->
+{% block content %}
+<div class="row">
+    <!-- <div class="card col-lg-4" v-for="(item, index) in json['policy']" :key="index">
+        <div class="card-body">
+          <a v-bind:href="item.link">
+            <h4 class="card-title">[[item.name]]</h4>
+          </a>
+          <p class="card-text">[[item.promulgator]]</p>
+          <span class="badge badge-primary">[[item.w_date]]</span>
+          <span class="badge badge-success">[[item.release_date]]</span>
+        </div> -->
+    <div class="row" v-for="(items, index) in json" :key="index">
+      <div class="card col-lg-2 p-0 mx-5 my-2" v-for="(item, index) in items" :key="index">
+        <div class="card-body p-0">
+          <a v-bind:href="[[item.link]]">
+
+
+            <img v-bind:src="[[item.imgUrl]]" class="w-100 img-fluid" style="height: 200px;">
+          </a>
+          <h4 class="card-title">[[item.title]]</h4>
+          <p class="card-text">Text</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+{% endblock %}
+{% block script %} 
+  <script src="../static/js/novel.js"></script>
+  {% endblock %}

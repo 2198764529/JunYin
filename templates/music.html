@@ -1,0 +1,114 @@
+{% extends "nav.html" %}
+<!-- {% block title %}Index{% endblock %} -->
+<!-- {% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %} -->
+{% block content %}
+<div id="app">
+<div class="row">
+  <div class="col-lg-12">
+    <a v-for="(items, index) in page_urls" :key="index" href="javascript:void(0);"
+        @click="setQueryString('site_list',index)" class="mx-auto">
+        <img v-bind:src="[[items.s_logo]]" style="width: 50px; height:50px;"
+            class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|} "
+            alt="">
+
+    </a>
+</div>
+
+
+  <!-- 数据展示 -->
+
+  <table class="table table-hover table-striped">
+
+    <tbody v-for="(music, site) in json" :key="site">
+      <tr class="Regular shadow" v-if="show_flag[site]['source'] && show_flag[site]['singer'] "
+        v-for="(item, index) in json[site]" :key="index">
+        <td>[[index]]</td>
+        <td>
+
+
+          <a @click="add_song(site,item)" href="#">
+            <img v-bind:src="[[item.album_pic]]" v-bind:alt="item.song" class="img-thumbnail img-fluid"
+              style="height: 35px; width: 40px;">
+
+            [[item.song]]
+          </a>
+          <a v-show="hasMV(item.song_mv)" @click=" get_mvDetail(site,item.song_mv)" href="#">
+            <span class="badge badge-pill badge-primary">MV</span>
+
+          </a>
+
+        </td>
+        <td>
+          <a @click="get_albumDetail(site,item.album_id)" href="#">《[[item.album]]》</a>
+        </td>
+        <td>
+          <a @click="get_singerDetail(site,item.singer_id)" href="#">
+            <span>
+
+              [[item.singer]]
+            </span>
+          </a>
+        </td>
+        <!-- <td>
+            <img v-bind:src="logo_urls[site]" alt="site" class="img-thumbnail img-fluid" style="height: 50px;">
+          </td> -->
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 版权，友情链接 -->
+  <div class="col-lg-12">
+    <nav class="breadcrumb mx-auto">
+      <a class="breadcrumb-item" target="_blank" v-bind:href="page_urls[index].link" v-for="(item, index) in logo_urls"
+        :key="index">
+        <img v-bind:src="item" alt="index" style="height: 37px; width:153px;">
+      </a>
+    </nav>
+  </div>
+</div>
+<div class="row fixed-bottom " id="player_div">
+
+  <nav class="navbar navbar-expand navbar-light bg-light m-auto">
+    <div class="nav navbar-nav ">
+      <!-- style="flex-direction: column;" -->
+      <a class="nav-item nav-link active" href="#">
+
+        <i class="fa fa-step-forward" style="font-size: 30px;" @click="next()"></i>
+      </a>
+      <a class="nav-item nav-link" href="#">
+        <i class="fa fa-pause-circle-o" @click="pause()" style="font-size: 35px;" v-if="play_flag"></i>
+        <i class="fa fa-play-circle-o" @click="play(undefined)" style="font-size: 35px;" v-else></i>
+      </a>
+      <a class="nav-item nav-link" href="#">
+        <i class="fa fa-step-backward" style="font-size: 30px;"></i>
+      </a>
+      <p>
+        <span class="badge badge-primary" id="play_time"></span>
+      </p>
+
+
+    </div>
+  </nav>
+  <div class="progress w-100">
+    <div class="progress-bar" id="myprogress" role=" " v-bind:aria-valuenow="player.currentTime" aria-valuemin="0"
+      v-bind:aria-valuemax="play_total_time">
+    </div>
+  </div>
+</div>
+<audio id="music_player">
+  <source type="audio/mp3" src="">
+  您的浏览器不支持 audio 元素。
+</audio>
+
+
+
+</div>
+{% endblock %}
+{% block script %}
+<script src="../static/js/music.js"></script>
+{% endblock %}

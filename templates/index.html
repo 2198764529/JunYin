@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>聚音</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <!-- Vue.js -->
+    <script src="../static/js/vue.min.js"></script>
+    <!-- axios -->
+    <script src="../static/js/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app" class="container-fluid">
+        <!-- <div class="container">
+            <form action="/search" method="GET">
+                <div class="form-group">
+                    <label for=""></label>
+                    <input type="text" class="form-control form-control-sm" name="keyword" aria-describedby="helpId"
+                        placeholder="">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div> -->
+        <!-- 搜索框 -->
+
+        <div class="row" style="margin-top: 200px;">
+
+            <img src="../static/img/juyin_logo.png" class="rounded-pill img-responsive center-block m-auto"
+                style="height: 100px; width:100px;">
+        </div>
+
+
+        <div class="row">
+            <!-- <form class="w-100" action="/search" method="GET">
+                <div class="col-lg-8 m-auto input-group">
+                    <label for=""></label>
+                    <input type="text" class="rounded-pill form-control" name="keyword" id="" aria-describedby="helpId"
+                        placeholder="">
+
+                    <div class="dropdown open">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <button class="dropdown-item" href="#">Action</button>
+                            <button class="dropdown-item disabled" href="#">Disabled action</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form> -->
+            <form class="w-100" action="/music" method="GET">
+                <div class="input-group col-lg-8 m-auto">
+
+                    <input type="text" class="form-control rounded-pill" name="search_input"
+                        aria-label="Text input with dropdown button">
+                    <button type="submit" class="btn btn-primary"></button>
+                        <!-- <div class="input-group-append">
+                        <select class="custom-select" name="search_type" id="">
+                            <option value="search_music">music</option>
+                            <option value="search_movie">movie</option>
+                            <option value="search_info" selected>info</option>
+                        </select>
+                    </div> -->
+                </div>
+
+            </form>
+        </div>
+
+
+
+    </div>
+    </div>
+    <!-- Optional JavaScript -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+
+
+</body>
+
+</html>
